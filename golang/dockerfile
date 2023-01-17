@@ -1,0 +1,10 @@
+FROM golang AS buider
+WORKDIR /go/src
+COPY . .
+RUN go build hello.go
+
+FROM scratch
+WORKDIR /go/src
+COPY --from=buider /go/src/hello .
+
+CMD ["./hello"]
