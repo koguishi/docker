@@ -1,0 +1,41 @@
+# Derived from official mysql image (our base image)
+FROM mysql
+# Add a database
+ENV MYSQL_DATABASE mydb
+# Add the content of the sql-scripts/ directory to your image
+# All scripts in docker-entrypoint-initdb.d/ are automatically
+# executed during container startup
+COPY ./scripts/ /docker-entrypoint-initdb.d/
+# FROM mysql:5.7.16 AS build
+
+# # Add a database
+# ENV MYSQL_DATABASE=nodedb
+
+# # Add the content of the sql-scripts/ directory to your image
+# # All scripts in docker-entrypoint-initdb.d/ are automatically
+# # executed during container startup
+# COPY ./scripts/ /docker-entrypoint-initdb.d/
+
+# VOLUME [ "./mysql-data:/var/lib/mysql" ]
+
+# WORKDIR /var/lib/mysql
+
+# EXPOSE 3306
+
+# ENV MYSQL_ROOT_PASSWORD=root
+# ENV MYSQL_USER=MainUser
+# ENV MYSQL_PASSWORD=MainPassword
+
+
+# COPY ./db/ /docker-entrypoint-initdb.d/
+# RUN service mysql start
+
+# $ docker run -d -p 3306:3306
+#  -e MYSQL_DATABASE=Backoffice
+#  -e MYSQL_ROOT_PASSWORD=RootPassword
+#  -e MYSQL_USER=MainUser
+#  -e MYSQL_PASSWORD=MainPassword
+# backoffice-db
+
+#CMD [ "mysqld", "--init-file=/docker-entrypoint-initdb.d/create-db.sql" ]
+#CMD [ "service", "mysql", "start" ]
