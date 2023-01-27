@@ -9,10 +9,10 @@ const connection = mysql.createConnection({
   password: 'root',
   database: 'nodedb'
 })
-const command = `INSERT INTO employees(name) VALUES('Edson Koguishi')`
+const command = `INSERT INTO people(name) VALUES('Edson Koguishi')`
 connection.query(command)
 result = [];
-connection.query("SELECT * FROM employees", function (err, rows) {
+connection.query("SELECT * FROM people", function (err, rows) {
   if (!err && rows.length > 0) {
     result = rows;
   }

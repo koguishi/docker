@@ -1,7 +1,7 @@
-CREATE TABLE employees (
+CREATE TABLE people (
     name varchar(200)
 );
-INSERT INTO employees (name) VALUES ('First User on create table');
+INSERT INTO people (name) VALUES ('First User on create table');
 
 -- SET character_set_client = utf8;
 -- SET character_set_connection = utf8;
