@@ -12,8 +12,15 @@ RUN npm install mysql2 -y
 RUN npm install express --save
 
 COPY ./index.js .
+COPY ./hello.js .
 # instalar pacotes através do RUN APT-GET
 
-EXPOSE 3000
+EXPOSE 3000 3001
 
-CMD ["node", "index.js"]
+ENTRYPOINT [ "node" ]
+
+CMD ["hello.js"]
+
+# para gerar a imagem:
+#   docker network create node-network #se ainda não criado
+#   docker run -d -v $(pwd)/:/usr/src/app -p 3000:3000 --network node-network --name app edsonkoguishi/node index.js

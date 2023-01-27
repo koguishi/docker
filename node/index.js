@@ -7,7 +7,7 @@ const connection = mysql.createConnection({
   host: 'db',
   user: 'root',
   password: 'root',
-  database: 'mydb'
+  database: 'nodedb'
 })
 const command = `INSERT INTO employees(name) VALUES('Edson Koguishi')`
 connection.query(command)

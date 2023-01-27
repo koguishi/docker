@@ -1,0 +1,7 @@
+FROM nginx
+
+EXPOSE 80
+
+WORKDIR /etc/nginx/conf.d
+
+COPY ./default.conf .
