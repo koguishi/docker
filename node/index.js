@@ -19,24 +19,13 @@ connection.query("SELECT * FROM employees", function (err, rows) {
 });
 connection.end
 
-// app.get('/', function (req, res, next) {
-//   pool.getConnection(function (err, connection) {
-//       connection.query("SELECT * FROM employees", function (err, rows) {
-//           if (!err && rows.length > 0) {
-//               res.json(rows);
-//           } else {
-//               res.json([]);
-//           }
-//       });
-//     }
-//   );
-// });
-
 app.get('/', (req, res) => {
-  res.json(result);
-
-  // res.send('<h1>Full Cycle Rocks!</h1>')
-
+  // res.json(result);
+  html = '<h1>Full Cycle Rocks!</h1>'
+  result.forEach(element => {
+    html += '<li>' + element.name + '</li>';
+  });
+  res.send(html);
 })
 
 app.listen(port, () => {
